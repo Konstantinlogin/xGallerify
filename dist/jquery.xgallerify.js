@@ -1,5 +1,5 @@
 /* globals jQuery */
-"use strict";
+'use strict';
 (function($){
 	var windowHasLoaded = false;
 	$(window).load(function(){
@@ -24,7 +24,7 @@
 		params.imagesPerRow = params.imagesPerRow || undefined; //How many images should show up at a MINIMUM
 		params.debounceLoad = params.debounceLoad !== undefined && params.debounceLoad !== null ? params.debounceLoad : true; //How many images should show up at a MINIMUM
 		params.debounceTime = params.debounceTime !== undefined && params.debounceTime !== null ? params.debounceTime : 50; //How many images should show up at a MINIMUM
-		params.lastRow = params.lastRow || "adjust";
+		params.lastRow = params.lastRow || 'adjust';
 		init(_this, params);
 
 		this.gallerify.render = function(){
@@ -39,11 +39,11 @@
 		this.gallerify.renderAsyncImages = function(){
 			setupChilds(_this, params.margin);
 			if(params.debounceLoad){
-				_this.find("img").load(function(){
+				_this.find('img').load(function(){
 					asyncImagesLoadedFinished();
 				});
 			}else{
-				_this.find("img").load(function(){
+				_this.find('img').load(function(){
 					renderGallery(_this, params);
 				});	
 			}
@@ -58,12 +58,12 @@
 		if(params.jsSetup){
 			setupChilds(jGallery, params.margin);
 		}
-		jGallery.addClass("xgallerify");
+		jGallery.addClass('xgallerify');
 		// Render Gallery, if window has not been loaded yet
 		if(windowHasLoaded){
 			renderGallery(jGallery, params);
 		}else{ // Eventlistener for wondow load, to load gallery after window has been loaded
-			$(window).on("load", function(){
+			$(window).on('load', function(){
 				renderGallery(jGallery, params);
 			});
 		}
@@ -76,12 +76,12 @@
 	function setupChilds(jGallery, margin){
 		var jChildren = $(jGallery.children());
 		jChildren
-		.css("display", "inline-block")
-		.css("margin", margin)
+		.css('display', 'inline-block')
+		.css('margin', margin)
 
-		.find("img")
-		.css("width", "100%")
-		.addClass("ximage-loaded");
+		.find('img')
+		.css('width', '100%')
+		.addClass('ximage-loaded');
 	}
 
 	function renderGallery(jGallery, _params){
@@ -113,7 +113,7 @@
 							i == dChildren.length -1 && //Check if last row
 							jChildren.length < screenSettings.itemsPerRow // Check if the miminum items per row are reched
 						) || //Checking if current row is a complete row
-						_params.lastRow == "fullwidth" //check if a non-complete row should be displayed with the full width
+						_params.lastRow == 'fullwidth' //check if a non-complete row should be displayed with the full width
 					){
 						lastRowHeight = renderRow(jChildRows[jChildRows.length - 1], width, _params.margin, screenSettings.maxHeight);
 					}else{
@@ -148,7 +148,7 @@
 		return rowHeight;
 	}
 	function hideRow(jChildren){
-		$(jChildren).each( function(){ $(this).css("display", "none"); });
+		$(jChildren).each( function(){ $(this).css('display', 'none'); });
 		return 0; // Return height of 0px, to be consistent with other render functions
 	}
 
@@ -172,10 +172,10 @@
 	}
 
 	function getMode(_mode){
-		if(typeof _mode === "object"){
+		if(typeof _mode === 'object'){
 			return _mode;
 		}else{
-			if(_mode == "bootstrap"){ // ------- bootstrap mode -------
+			if(_mode == 'bootstrap'){ // ------- bootstrap mode -------
 				return{
 					maxHeight: screen.height * 0.5,
 					breakPoints:[
@@ -194,7 +194,7 @@
 						}
 					]
 				};
-			}else if(_mode == "bootstrapv4"){ // ------- bootstrap mode -------
+			}else if(_mode == 'bootstrapv4'){ // ------- bootstrap mode -------
 				return{
 					maxHeight: screen.height * 0.5,
 					breakPoints:[
@@ -213,7 +213,7 @@
 						}
 					]
 				};
-			}else if(_mode == "flickr"){ // ------- flickr mode -------
+			}else if(_mode == 'flickr'){ // ------- flickr mode -------
 				return{
 					maxHeight: screen.height * 0.4,
 					breakPoints:[
@@ -232,7 +232,7 @@
 						}
 					]
 				};
-			}else if(_mode == "small"){ // ------- small mode -------
+			}else if(_mode == 'small'){ // ------- small mode -------
 				return{
 					maxHeight: screen.height * 0.4,
 					breakPoints:[
