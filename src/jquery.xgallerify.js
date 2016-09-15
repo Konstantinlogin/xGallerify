@@ -164,10 +164,11 @@
 		var currentWidth = 0;
 		$(jChildren).each( function(){ currentWidth += $(this).width(); });
 		//adding 4px to the margin to let the gallery float smooth
-		var factor = (rowWidth - (jChildren.length * (margin + 4) * 2)) / currentWidth;
-		for (var i = 0; i < jChildren.length; i++){
-			jChildren[i].css('width',  jChildren[i].width() * factor);
-		}
+		var factor = (rowWidth - (jChildren.length * (margin * 2))) / currentWidth;
+
+		jChildren.map(function(_child){
+			_child.css('width',  _child.width() * factor);
+		});
 		return jChildren[0].height();
 	}
 
