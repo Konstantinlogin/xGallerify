@@ -89,6 +89,7 @@
 		var jChildRows = []; //jquery childs
 		var dChildren = jGallery.children(); //dom childs
 		var width = _params.width || jGallery.width();
+		$('#testwidth').text(width);
 		var screenSettings = getScreenSettings(width, _params.mode);
 		var imagesPerRow = _params.imagesPerRow || screenSettings.itemsPerRow;
 
@@ -161,6 +162,7 @@
 	}
 
 	function resizeToWidth(jChildren, rowWidth, margin){
+		console.log(rowWidth);
 		var currentWidth = 0;
 		$(jChildren).each( function(){ currentWidth += $(this).width(); });
 		//adding 4px to the margin to let the gallery float smooth
